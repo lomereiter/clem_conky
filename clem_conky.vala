@@ -2,7 +2,7 @@
    valac --pkg gio-2.0 clem_conky.vala
 
    example of usage:
-      clem_conky '${artist} - ${title}; elapsed: ${elapsed}/${time}'
+      clem_conky '#{artist} - #{title}; elapsed: #{elapsed}/#{time}'
  */
 
 struct PlayerStatus {
