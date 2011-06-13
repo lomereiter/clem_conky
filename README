@@ -2,7 +2,7 @@ The program is designed so as to make easy writing and editing
 Conky configurations if your favourite player is Clementine, 
 without all those annoying 'execi qdbus bla-bla-bla'. 
 
-To compile, you need valac (>= 10.0?). If anybody is unsatisfied 
+To compile, you need valac (>= 10.0?). If someone is unsatisfied 
 with such Gnomy choice — you are welcome to rewrite the thing in Qt ;-)
 
 A simple example:
