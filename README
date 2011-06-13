@@ -7,7 +7,7 @@ with such Gnomy choice — you are welcome to rewrite the thing in Qt ;-)
 
 A simple example:
 
-    ${execp cleminfo '                                                                                        
+    ${execp clem_conky '                                                                                        
         ${alignc} ${color yellow} #{artist} ${color white}
         ${alignc} #{tracknumber} - #{title}
         ${alignc} #{album} (#{year})
