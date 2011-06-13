@@ -1,0 +1,20 @@
+The program is designed so as to make easy writing and editing
+Conky configurations if your favourite player is Clementine, 
+without all those annoying 'execi qdbus bla-bla-bla'. 
+
+To compile, you need valac (>= 10.0?). If anybody is unsatisfied 
+with such Gnomy choice — you are welcome to rewrite the thing in Qt ;-)
+
+A simple example:
+
+    ${execp cleminfo '                                                                                        
+        ${alignc} ${color yellow} #{artist} ${color white}
+        ${alignc} #{tracknumber} - #{title}
+        ${alignc} #{album} (#{year})
+        ${alignc} Bitrate: #{bitrate} kbps | Frequency: #{samplerate}
+        ${alignc} Volume: #{volume}%
+        ${alignc} #{percent}% (#{elapsed} / #{totaltime})
+        ${alignc} Shuffle: #{shuffle} | Status: #{status}
+        #{progressbar}
+    '}    
+
