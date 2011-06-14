@@ -46,8 +46,17 @@ void main(string[] args) {
         Regex regex = new Regex("\\#\\{(.*?)\\}");
         stdout.printf("%s", regex.replace_eval(args[1], -1, 0, 0, 
           (match, result) => {
-            string param = match.fetch(1);
+            string param = match.fetch(1).strip();
             try {
+            if (param.has_prefix("cover")) {
+                try {
+                result.append("${image ");
+                result.append(param.replace("cover",
+                              Filename.from_uri(
+                                   track_info.lookup("arturl").get_string())));
+                result.append("}");
+                } catch (ConvertError e) { stderr.printf(e.message); }
+            } else 
             switch (param) {
                 case "bar":
                 case "progressbar":
