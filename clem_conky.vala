@@ -28,6 +28,10 @@ string seconds_to_str(int32 seconds) {
     return sb.str;
 }
 
+string conky_string(Variant v) {
+    return v.get_string().replace("$", "$$").replace("#","\\#");
+}
+
 void main(string[] args) {
     if (args.length < 2) {
         return;
@@ -53,7 +57,7 @@ void main(string[] args) {
                 result.append("${image ");
                 result.append(param.replace("cover",
                               Filename.from_uri(
-                                   track_info.lookup("arturl").get_string())));
+                                   conky_string(track_info.lookup("arturl")))));
                 result.append("}");
                 } catch (ConvertError e) { stderr.printf(e.message); }
             } else 
@@ -75,7 +79,7 @@ void main(string[] args) {
                 case "file":
                 case "location":
                     result.append_printf(
-                        track_info.lookup("location").get_string());
+                        conky_string(track_info.lookup("location")));
                     break;
                 case "frequency":
                 case "samplerate":
@@ -129,7 +133,7 @@ void main(string[] args) {
                 default: /* album, artist, title, genre, year */
                     Variant v = track_info.lookup(param);
                     if (v.get_type().equal(VariantType.STRING)) {
-                        result.append(v.get_string());
+                        result.append(conky_string(v));
                     } else {
                         result.append(v.print(false));
                     }
